@@ -1,0 +1,14 @@
+CREATE DATABASE `gallery`
+    DEFAULT CHARACTER SET = 'utf8mb4';
+
+CREATE TABLE `images` ( `id` INT NOT NULL AUTO_INCREMENT ,
+ `image` VARCHAR(255) NOT NULL ,
+  `created_at` TIMESTAMP NOT NULL ,
+   `updated_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`))
+ ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ CREATE TABLE `list` ( `id` INT NOT NULL AUTO_INCREMENT ,
+ `task` VARCHAR(255) NOT NULL ,
+  `created_at` TIMESTAMP NOT NULL ,
+   `updated_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`))
+ ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
