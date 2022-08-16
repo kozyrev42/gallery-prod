@@ -33,3 +33,5 @@ Route::get('/test/{id?}', 'ImagesController@testRequest'); // для теста 
 Route::post('/testpost', 'ImagesController@testPost'); // для валидации данных из формы
 
 Route::get('/list', 'HomeController@list'); // страница список дел
+
+Route::post('/addtask', 'HomeController@addTask'); // добавление задачи в базу

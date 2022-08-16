@@ -23,6 +23,18 @@ class HomeController extends Controller
         return view('list', ['tasksInView' => $tasks]);   /* передача данных в Вид, в виде будем ловить данные через 'tasksInView' */
     }
 
+    
+    // загрузка задачи в базу
+    public function addTask(Request $request) {
+        
+        // нужно получить данные 
+        $task = $request->input('task');
+        // вызов метода, для записи в базу
+        $this->myList->add($task);
+
+        return redirect('/list');
+    }
+
     public function about(){
         // рендер страниц about.blade.php
         return view('about');

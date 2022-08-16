@@ -18,12 +18,18 @@ class ListService
         return $myList;
     }
 
+    // запись в базу Задачи
     public function add($task)
     {
-          
+        $format = '%Y-%m-%d %H:%M:%S';
+        $strf = strftime($format);
+
+        //dd($strf);exit;
         // запись в базу задачи
         DB::table('list')->insert(
-            ['task' => $task]
+            ['task' => $task,
+            'created_at' => $strf,
+            'updated_at' => $strf]
         );
     }
 

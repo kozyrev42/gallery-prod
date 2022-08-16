@@ -5,6 +5,17 @@
 @section('content')
 <div class="container">
     <h1 align="center">Список дел</h1>
+
+    <h3>Добавить задачу</h3>
+
+    <form action="/addtask" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="form-control">
+            <input type="text" name="task">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
     <div class="row">
         @foreach ($tasksInView as $task)
             <div class="col-md-3 gallery-items">
