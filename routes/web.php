@@ -35,3 +35,9 @@ Route::post('/testpost', 'ImagesController@testPost'); // для валидац�
 Route::get('/list', 'HomeController@list'); // страница список дел
 
 Route::post('/addtask', 'HomeController@addTask'); // добавление задачи в базу
+
+Route::get('/taskdelete/{id}', 'HomeController@taskDelete'); // удаление Задачи
+
+Route::get('/taskedit/{id}', 'HomeController@taskEdit'); // роут на страницу Редактирования
+
+Route::post('/taskeditpost/{id}', 'HomeController@taskEditUpdate'); // роут на обработчик Редактирования

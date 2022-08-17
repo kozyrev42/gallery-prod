@@ -35,6 +35,31 @@ class HomeController extends Controller
         return redirect('/list');
     }
 
+    // удаление задачи
+    public function taskDelete ($id) {
+        // метод удаляет задачи
+        $this->myList->taskDeleteModel($id);
+    
+        return redirect('/list');
+    }
+
+    // рендер страницы Редактирование
+    public function taskEdit($id){
+        // в переменную кладём, результат вызова метода-класс
+        $task = $this->myList->taskByID($id); /* dd($task);exit; */
+        return view('taskedit', ['taskInView' => $task]);   /* передача данных в Вид, в виде будем ловить данные через 'tasksInView' */
+    }
+
+    // обработчик редактирования задачи
+    public function taskEditUpdate(Request $request, $id){
+        // нужно получить данные 
+        $newTask = $request->input('newtask');
+    
+        $this->myList->taskEditUpdateModel($id, $newTask);
+
+        return redirect('/list');
+    }
+
     public function about(){
         // рендер страниц about.blade.php
         return view('about');

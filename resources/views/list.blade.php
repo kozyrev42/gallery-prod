@@ -4,7 +4,7 @@
 {{-- создаётся секция, которая будет вставлятся в нужное место --}}
 @section('content')
 <div class="container">
-    <h1 align="center">Список дел</h1>
+    <h1>Список дел</h1>
 
     <h3>Добавить задачу</h3>
 
@@ -13,16 +13,15 @@
         <div class="form-control">
             <input type="text" name="task">
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Добавить задачу</button>
     </form>
 
     <div class="row">
         @foreach ($tasksInView as $task)
             <div class="col-md-3 gallery-items">
                 <h5>{{$task->task}}</h5>
-                <a href="/show/{{$task->id}}" class="btn btn-info my-button">Просмотр</a>
-                <a href="/edit/{{$task->id}}" class="btn btn-warning my-button">Редактировать</a>
-                <a href="/delete/{{$task->id}}" class="btn btn-danger my-button">Удалить</a>
+                <a href="/taskedit/{{$task->id}}" class="btn btn-info my-button">Редактировать</a>
+                <a href="/taskdelete/{{$task->id}}" class="btn btn-danger my-button">Удалить</a>
             </div>
         @endforeach
 

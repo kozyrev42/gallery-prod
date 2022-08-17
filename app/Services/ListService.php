@@ -33,18 +33,35 @@ class ListService
         );
     }
 
-//     public function imageID($id)
-//     {
-//         // получение данных записи
-//         $data = DB::table('images')
-//                          ->select('*')
-//                          ->where('id', $id)
-//                          ->first();     /* возвращантся одна запись */
-//         // получение изображения
-//         $myImages = $data->image;
+    public function taskDeleteModel($id)
+    {
+        // удаление из базы записи            
+        DB::table('list')->where('id', $id)->delete();
+    }
 
-//         return $myImages;
-//     }
+    public function taskByID($id)
+    {
+        // получение данных записи
+        $data = DB::table('list')
+                         ->select('*')
+                         ->where('id', $id)
+                         ->first();     /* возвращантся одна запись */
+        // получение изображения
+        $returnTask = $data;
+
+        return $returnTask;
+    }
+
+    public function taskEditUpdateModel($id, $newTask)
+    {
+        // получение данных из формы
+        //dd($newTask); exit;
+
+        // запись в базу новой записи
+        DB::table('list')
+                ->where('id', $id)
+                ->update(['task' => $newTask]);
+    }
 
 //     public function dataID($id)
 //     {
